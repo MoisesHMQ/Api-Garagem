@@ -14,7 +14,7 @@ def cadastrar():
         if carro["carro"] == motorista["carro"] and carro["placa"] == motorista["placa"]:  
             return {"status":"Cliente já existe."}
     motorista = {
-        "rastreio": str(uuid.uuid4()),
+        "id": str(uuid.uuid4()),
         "carro": motorista["carro"],
         "placa": motorista["placa"]
         }
@@ -39,7 +39,7 @@ def desligar():
     body_excluir = request.json
     print(garagem)
     for dell in garagem:
-        if dell["rastreio"] == body_excluir["rastreio"]:
+        if dell["id"] == body_excluir["id"]:
             plano_vip.remove(dell)
             return body_excluir
 plano_vip = []
@@ -51,7 +51,7 @@ def carageiro():
         if plano["vip"] == pacote_vip["vip"]: 
             return {"status":"carro já incluso no Vip."}
     pacote_vip = {
-        "ip": str(uuid.uuid4()),
+        "id": str(uuid.uuid4()),
         "vip": pacote_vip["vip"]
         }
     plano_vip.append(pacote_vip)
@@ -66,7 +66,7 @@ def desligar():
     body_excluir = request.json
     print(plano_vip)
     for estoque in plano_vip:
-        if estoque["codigo"] == body_excluir["codigo"]:
+        if estoque["id"] == body_excluir["id"]:
             plano_vip.remove(estoque)
             return body_excluir
 
