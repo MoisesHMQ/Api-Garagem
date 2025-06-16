@@ -1,5 +1,5 @@
 from flask import jsonify, Request, request
-from flask import Flask
+from flask import flask
 import uuid
 
 
@@ -44,7 +44,7 @@ def desligar():
             return body_excluir
 plano_vip = []
 
-@app.route("/venda/plano/vip", methods=['POST']) #vende o pacote mensal vip
+@app.route("/venda/plano/vip", methods=['POST']) #Vende o pacote mensal vip
 def carageiro():
     pacote_vip = request.json 
     for plano in plano_vip:
@@ -57,7 +57,7 @@ def carageiro():
     plano_vip.append(pacote_vip)
     return jsonify(pacote_vip)
 
-@app.route("/carrosvips") #mostra todos os carros que tem vip
+@app.route("/carrosvips") #Mostra todos os carros que tem vip
 def vip():
     return jsonify(plano_vip)
 
